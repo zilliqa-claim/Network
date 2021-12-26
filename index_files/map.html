@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://www.thetatoken.org/map.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Add styles made with Mapbox Studio to a Leaflet map</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="./mapbox.js.download"></script>
+    <link href="./mapbox.css" rel="stylesheet">
+
+    <script src="./leaflet.markercluster.js.download"></script>
+    <link href="./MarkerCluster.css" rel="stylesheet">
+    <link href="./MarkerCluster.Default.css" rel="stylesheet">
+
+    <style>
+        body { margin:0; padding:0; background: #1b1f2a }
+        #map { position:absolute; top:0; bottom:0; width:100%; background: #1b1f2a }
+        .leaflet-container{
+            background: #1b1f2a;
+        }
+        .leaflet-div-icon{
+            background: transparent;
+            border: none;
+        }
+
+        .validatorClusterGroup{
+            z-index: 10000000;
+        }
+
+        .clusterGroup{
+            text-align: center;
+            color: #fff;
+            height: 38px;
+            border-radius: 19px;
+            background: #25ced5;
+            border: 8px solid #25ced5;
+        }
+
+        .clusterGroup--gn{
+            background: #25ced5;
+            border: 8px solid #25ced5;
+        }
+
+        .clusterGroup--validator{
+            background: #f42f56;
+            border: 8px solid #f42f56;
+            z-index: 100000 !important;
+        }
+
+        .clusterGroup--ec{
+            background: #f5c437;
+            border: 8px solid #f5c437;
+        }
+    </style>
+</head>
+<body>
+<div id="map" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(-298px, -77px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" role="presentation" src="./0@2x" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(339px, -211px, 0px); opacity: 1;"><img alt="" role="presentation" src="./1@2x" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(339px, 301px, 0px); opacity: 1;"><img alt="" role="presentation" src="./0@2x(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-173px, -211px, 0px); opacity: 1;"><img alt="" role="presentation" src="./0@2x(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(851px, -211px, 0px); opacity: 1;"><img alt="" role="presentation" src="./1@2x(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-173px, 301px, 0px); opacity: 1;"><img alt="" role="presentation" src="./1@2x(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(851px, 301px, 0px); opacity: 1;"><img alt="" role="presentation" src="./0@2x" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(1363px, -211px, 0px); opacity: 1;"><img alt="" role="presentation" src="./1@2x" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(1363px, 301px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-marker-pane"><img src="./dot_yellow_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1220px, 74px, 0px); z-index: 74;"><img src="./dot_red_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1248px, 192px, 0px); z-index: 192;"><img src="./dot_red_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(504px, 186px, 0px); z-index: 186;"><img src="./dot_red_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1253px, 165px, 0px); z-index: 165;"><img src="./dot_yellow_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(426px, 352px, 0px); z-index: 352;"><img src="./dot_green_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(534px, 104px, 0px); z-index: 104;"><img src="./dot_red_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1222px, 199px, 0px); z-index: 199;"><img src="./dot_red_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(631px, 180px, 0px); z-index: 180;"><img src="./dot_red_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(851px, 130px, 0px); z-index: 130;"><img src="./dot_red_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1146px, 297px, 0px); z-index: 297;"><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(712px, 366px, 0px); z-index: 366;">6</div><img src="./dot_yellow_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(581px, 86px, 0px); z-index: 86;"><img src="./dot_yellow_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1009px, 313px, 0px); z-index: 313;"><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(668px, 406px, 0px); z-index: 406;">8</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(425px, 77px, 0px); z-index: 77;">8</div><img src="./dot_yellow_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(789px, 61px, 0px); z-index: 61;"><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(635px, 306px, 0px); z-index: 306;">3</div><img src="./dot_red_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(878px, 107px, 0px); z-index: 107;"><img src="./dot_red_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(515px, 198px, 0px); z-index: 198;"><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1152px, 136px, 0px); z-index: 136;">2</div><div class="leaflet-marker-icon clusterGroup clusterGroup--validator leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1212px, 186px, 0px); z-index: 186;">2</div><img src="./dot_red_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(925px, 56px, 0px); z-index: 56;"><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(933px, 376px, 0px); z-index: 376;">18</div><div class="leaflet-marker-icon clusterGroup clusterGroup--validator leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(502px, 155px, 0px); z-index: 155;">3</div><img src="./dot_yellow_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(801px, 259px, 0px); z-index: 259;"><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(917px, 391px, 0px); z-index: 391;">2</div><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(423px, 84px, 0px); z-index: 84;">4</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1084px, 248px, 0px); z-index: 248;">12</div><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1180px, 397px, 0px); z-index: 397;">7</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(867px, 296px, 0px); z-index: 296;">6</div><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(402px, 239px, 0px); z-index: 239;">5</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(935px, 36px, 0px); z-index: 36;">2</div><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1283px, 406px, 0px); z-index: 406;">50</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(403px, 240px, 0px); z-index: 240;">12</div><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1216px, 191px, 0px); z-index: 191;">29</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1226px, 188px, 0px); z-index: 188;">103</div><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1169px, 261px, 0px); z-index: 261;">31</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1167px, 339px, 0px); z-index: 339;">46</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(597px, 245px, 0px); z-index: 245;">171</div><img src="./dot_red_1@2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1197px, 207px, 0px); z-index: 207;"><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(866px, 143px, 0px); z-index: 143;">234</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1120px, 109px, 0px); z-index: 109;">17</div><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(914px, 113px, 0px); z-index: 113;">41</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(973px, 124px, 0px); z-index: 124;">141</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(691px, 381px, 0px); z-index: 381;">120</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(734px, 346px, 0px); z-index: 346;">41</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1279px, 405px, 0px); z-index: 405;">171</div><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(512px, 178px, 0px); z-index: 178;">266</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(870px, 140px, 0px); z-index: 140;">1150</div><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1009px, 225px, 0px); z-index: 225;">15</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(1171px, 247px, 0px); z-index: 247;">192</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(980px, 197px, 0px); z-index: 197;">170</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(513px, 180px, 0px); z-index: 180;">620</div><div class="leaflet-marker-icon clusterGroup clusterGroup--gn leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(608px, 187px, 0px); z-index: 187;">734</div><div class="leaflet-marker-icon clusterGroup clusterGroup--ec leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -19px; margin-top: -19px; width: 38px; height: 38px; transform: translate3d(608px, 183px, 0px); z-index: 183;">2108</div></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(539px, 454px, 0px) scale(2);"></div><div class="leaflet-pane leaflet-validator-pane" style="z-index: 6010;"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="https://www.thetatoken.org/map.html#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out leaflet-disabled" href="https://www.thetatoken.org/map.html#" title="Zoom out" role="button" aria-label="Zoom out">−</a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="http://leafletjs.com/" title="A JS library for interactive maps">Leaflet</a> | © <a href="https://apps.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a></div></div></div></div>
+
+<script>
+    var greenDotIcon = L.icon({
+        iconUrl: '/assets/map/dot_green_1@2x.png',
+        iconSize:     [38, 38], // size of the icon
+        shadowSize:   [0, 0], // size of the shadow
+        iconAnchor:   [19, 19], // point of the icon which will correspond to marker's location
+        shadowAnchor: [0, 0],  // the same for the shadow
+        popupAnchor:  [19, 19] // point from which the popup should open relative to the iconAnchor
+    });
+    var yellowDotIcon = L.icon({
+        iconUrl: '/assets/map/dot_yellow_1@2x.png',
+        iconSize:     [38, 38], // size of the icon
+        shadowSize:   [0, 0], // size of the shadow
+        iconAnchor:   [19, 19], // point of the icon which will correspond to marker's location
+        shadowAnchor: [0, 0],  // the same for the shadow
+        popupAnchor:  [19, 19] // point from which the popup should open relative to the iconAnchor
+    });
+    var redDotIcon = L.icon({
+        iconUrl: '/assets/map/dot_red_1@2x.png',
+        iconSize:     [38, 38], // size of the icon
+        shadowSize:   [0, 0], // size of the shadow
+        iconAnchor:   [19, 19], // point of the icon which will correspond to marker's location
+        shadowAnchor: [0, 0],  // the same for the shadow
+        popupAnchor:  [19, 19] // point from which the popup should open relative to the iconAnchor
+    });
+
+    L.mapbox.accessToken = 'pk.eyJ1IjoicnlhbnNsaXZlciIsImEiOiJjazA4ZXhjd3c0bTFrM2JtbGZnejhuYmZlIn0.ulJvi3wQTiC1OPw4ggg4QA';
+    var map = L.map('map', { maxZoom:4, minZoom: 2, reuseTiles: true}).setView([38.97416, -95.23252], 2);
+
+
+    //Define a pane above the default markerPane
+    map.createPane('validatorPane').style.zIndex = 6010;
+
+    if (map.scrollWheelZoom) {
+        map.scrollWheelZoom.disable();
+    }
+
+    // Add tiles from the Mapbox Static Tiles API
+    // (https://docs.mapbox.com/api/maps/#static-tiles)
+    // Tiles are 512x512 pixels and are offset by 1 zoom level
+    L.tileLayer(
+        'https://api.mapbox.com/styles/v1/ryansliver/ck08ey4vh13t51cp9zvu37v86/tiles/512/{z}/{x}/{y}@2x?access_token=' + L.mapbox.accessToken, {
+            tileSize: 512,
+            zoomOffset: -1,
+            attribution: '© <a href="https://apps.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+    function makeClusterGroup(className, pane) {
+        var options = {
+            iconCreateFunction: function(cluster) {
+                // return new L.DivIcon({
+                //     iconSize: [38, 38],
+                //     html: '<div style="text-align:center;color:#fff;height:38px;border-radius:19px;background:' +
+                //         backgroundColor + ';' + 'border: 8px solid ' + borderColor + '"' + ' class="' + className + '"' + '>'  + cluster.getChildCount() + '</div>'
+                // });
+
+                return L.divIcon({ html: cluster.getChildCount(), className: className, iconSize: L.point(38, 38) });
+            },
+            //spiderfyOnMaxZoom: false,
+            //showCoverageOnHover: false,
+            //maxClusterRadius: 120
+            maxClusterRadius: ((pane === "validatorPane") ? 1 : 80)
+        };
+
+        if (pane) {
+            options.clusterPane = pane;
+        }
+
+        return new L.MarkerClusterGroup(options);
+    }
+
+    var gnClusterGroup = makeClusterGroup('clusterGroup clusterGroup--gn');
+    var ecClusterGroup = makeClusterGroup('clusterGroup clusterGroup--ec');
+    var validatorClusterGroup = makeClusterGroup('clusterGroup clusterGroup--validator', 'validatorPane');
+
+
+    map.addLayer(ecClusterGroup);
+    map.addLayer(gnClusterGroup);
+    map.addLayer(validatorClusterGroup);
+
+    function populateMapOptimized(result){
+        var nodes = result['active-nodes'];
+        var idx = 0;
+
+        nodes.forEach(function(node){
+            var type = node[0];
+            var lat = node[1];
+            var lon = node[2];
+            var icon = null;
+            var clusterGroup = null;
+            var zIndex = null;
+
+            if(type === 2){
+                icon = greenDotIcon;
+                clusterGroup = gnClusterGroup;
+            }
+            else if(type === 3){
+                icon = yellowDotIcon;
+                clusterGroup = ecClusterGroup;
+            }
+            else if(type === 1){
+                icon = redDotIcon;
+                clusterGroup = validatorClusterGroup;
+                zIndex = 100000 + idx;
+            }
+
+            if(clusterGroup){
+                var marker = L.marker([lat, lon], {icon: icon});
+                clusterGroup.addLayer(marker);
+
+                if(zIndex){
+                    //marker.bringToFront();
+                }
+            }
+
+            idx++;
+        });
+
+        map.fitBounds(gnClusterGroup.getBounds(), {padding: L.point(20, 20)});
+    }
+
+    function populateMap(result){
+        var nodes = result['active-nodes'];
+        var idx = 0;
+
+        nodes.forEach(function(node){
+            var type = node.type;
+            var location = node.location;
+            var icon = null;
+            var clusterGroup = null;
+            var zIndex = null;
+
+            if(type === "gn"){
+                icon = greenDotIcon;
+                clusterGroup = gnClusterGroup;
+            }
+            else if(type === "ec"){
+                icon = yellowDotIcon;
+                clusterGroup = ecClusterGroup;
+            }
+            else if(type === "validator"){
+                icon = redDotIcon;
+                clusterGroup = validatorClusterGroup;
+                zIndex = 100000 + idx;
+            }
+
+            if(clusterGroup){
+                var marker = L.marker([location.latitude, location.longitude], {icon: icon});
+                clusterGroup.addLayer(marker);
+
+                if(zIndex){
+                    //marker.bringToFront();
+                }
+            }
+
+            idx++;
+        });
+
+        map.fitBounds(gnClusterGroup.getBounds(), {padding: L.point(20, 20)});
+    }
+
+    // fetch('https://api.thetatoken.org/v1/nodes/locations')
+    //     .then(function(response) {
+    //         response.json().then(function(result) {
+    //             populateMap(result);
+    //         });
+    //     });
+
+    window.addEventListener('message', function(event){
+        try {
+            if(!event.data || (typeof event.data !== 'object')){
+                return;
+            }
+
+            var data = event.data;
+            var type = data.type;
+            var result = data.data;
+
+            if(type === 'populateMap'){
+                populateMap(result);
+            }
+            if(type === 'populateMapOptimized'){
+                populateMapOptimized(result);
+            }
+        }
+        catch (e) {
+
+        }
+    }, false);
+
+</script>
+
+
+</body></html>
